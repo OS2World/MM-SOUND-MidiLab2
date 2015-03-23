@@ -1,0 +1,62 @@
+                    Announcing MidiLab/2 Version 3.0
+
+MidiLab/2 is a MIDI Sequencer, Editor and data manager application for OS/2
+Version 3 (Warp). Its primary functions- Record, Overdub, Playback, and Track Edit,
+and the other supporting functions, are controlled by CUA compliant PM user
+interface controls.
+
+MidiLab/2 exploits the power of OS/2, including 32-bit operation,
+multi-threading, and Presentation Manager functions.  It features minimal
+hardware and storage requirements while providing a high level of function
+and performance.  MidiLab/2 supports the MIDI 1.0 File Specification.
+There are no special hardware nor software requirements other than a Roland
+MPU-401/IPC/IMC MIDI Processing Unit (or a compatible OEM unit which emulates
+the MPU in UART mode), and any system capable of running OS/2 Version 3.
+
+While a musician unfamiliar with computers should be able to readily
+use MidiLab/2 as a multi-track recorder, its full capability can best be
+realized with a reasonable knowledge of MIDI concepts and terminology, and
+general computer operation.  It is assumed the user is familiar with
+MIDI-compatible equipment, and is aware of the role of a sequencer in a
+MIDI-based audio system.
+
+MidiLab/2 targets the Multimedia creator, the MIDI musician, and
+hobbyists/home users in general as potential users of the program.
+
+Highlights:
+
+- Full exploitation of OS/2
+- Sixteen tracks available for simultaneous playback
+- Record/Overdub a predetermined number of measures
+- Dynamic editing of track data with audio/visual presentation
+- MIDI data stream editing at the byte or measure level
+- Selective filtering of unwanted MIDI data
+- Can synchronize with external MIDI/SMPTE clock
+- Remote control capability from any MIDI device
+- Transposition and velocity adjustment
+- Note Quantization
+- System Exclusive dump/restore utility
+- Support of MIDI 1.0 file standard
+- No pre-requisite software (except for the high resolution timer)
+- Online HELP provides introduction, user's guide, and reference
+  information including MIDI tutorial.
+
+MidiLab/2 is available as Shareware from Compuserve (GO SWREG; registration ID 9510)
+or by contacting the author directly. The registration fee is $25 U.S.
+Support and non-Compuserve registration is available from:
+
+      James Bell
+      Far Pavilions Studio
+      PO Box 2314
+      Saratoga, Ca. 95070-0314
+
+      Telephone:  (408) 378-9649
+      Compuserve: 71034,3001
+      Email:      71034.3001@compuserve.com
+
+      Please visit the MidiLab Web Page on the 'Net:
+      http://ourworld.compuserve.com/homepages/JLBell
+
+OS/2 is a trademark of the IBM Corporation.  MPU 401/IPC/IMC are
+trademarks of the Roland Corporation
+

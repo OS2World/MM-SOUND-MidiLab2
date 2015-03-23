@@ -1,0 +1,142 @@
+#include "idlg.h"
+
+#define ID_MLAB                                  1
+#define ID_MLEDIT                                2
+
+#define BMP00                                    10
+
+#define IDM_FILE                                 1001
+#define IDM_F_NEW                                     1050
+#define IDM_F_OPEN                                    1101
+#define IDM_F_SAVE                                    1102
+#define IDM_F_SAVPRF                                  1202
+#define IDM_F_EXIT                                    1350
+#define IDM_METRO                                     1360
+#define IDM_MIDITHRU                                  1362
+
+#define IDM_EDIT                                 2000
+#define IDM_FUNCTION_C1                               2010
+#define IDM_EDIT_C1                                   2020
+#define IDM_E_CREATE                                  2050
+#define IDM_E_CLOSE                                   2100
+#define IDM_E_PAUSE                                   2150
+#define IDM_E_PLAY                                    2152
+#define IDM_E_CUT                                     2154
+#define IDM_E_COPY                                    2155
+#define IDM_E_PASTE                                   2156
+#define IDM_E_DELETE                                  2157
+#define IDM_E_TRKED                                   2158
+#define IDM_E_CLEAR                                   2162
+#define IDM_E_GRID                                    2164
+#define IDM_E_RESET                                   2168
+#define IDM_E_METRO                                   2170
+
+#define IDM_CONTROLS                             3000
+#define IDM_C_MAIN                                    3050
+
+#define IDM_ESOTERICA                            4000
+#define IDM_O_BULKDUMPRESTORE                         4050
+#define IDM_O_INDEXDISPLAY                            4100
+#define IDM_O_PGMCHNG                                 4150
+#define IDM_O_TESTMODE                                4250
+#define IDM_O_RMTCTL                                  4300
+#define IDM_O_BIGBARS                                 4352
+#define IDM_O_TRACE_C1                                4354
+#define IDM_O_USERPREF                                4356
+
+#define IDM_FILE_C1                              1000
+#define IDM_F_SAVE_C1                                 1050
+#define IDM_F_EXIT_C1                                 1150
+
+
+#define IDS_ERR_WINDOW_CREATE                    1
+#define IDS_ERR_WINDOW_POS                       2
+#define IDS_NO_HELP                              4
+#define IDS_HELP_TERM                            5
+#define IDS_HELP_OCCRD                           6
+#define IDS_HELP_TERM_TITLE                      7
+#define IDS_APP_EXE_NAME                         8
+#define IDS_APP_NAME                             10
+#define IDS_APP_C1_NAME                          11
+#define IDS_DISK_ERR                             12
+#define IDS_TITLE                                13
+#define IDS_MLEDIT_TITLE                         14
+
+#define IDS_NONE                                 15
+#define IDS_MX_8                                 16
+#define IDS_SYNCMAN                              17
+#define IDS_DX7                                  18
+#define IDS_TX816                                19
+#define IDS_HR16                                 20
+#define IDS_TX81Z                                21
+#define IDS_SPX90                                22
+#define IDS_U220                                 23
+
+#define IDS_TSG2                                 24
+#define IDS_TSG3                                 25
+#define IDS_TSG4                                 26
+#define IDS_TSG5                                 27
+#define IDS_TSG6                                 28
+#define IDS_TSG7                                 29
+#define IDS_TSG8                                 30
+#define IDS_TSG9                                 31
+
+#define IDS_TB48                                 32
+#define IDS_TB72                                 33
+#define IDS_TB96                                 34
+#define IDS_TB120                                35
+#define IDS_TB144                                36
+#define IDS_TB168                                37
+#define IDS_TB192                                38
+#define IDS_TB216                                39
+#define IDS_TB240                                40
+
+#define IDS_QNT_OFF                              41
+#define IDS_QNT4                                 42
+#define IDS_QNT6                                 43
+#define IDS_QNT8                                 44
+#define IDS_QNT12                                45
+#define IDS_QNT16                                46
+#define IDS_QNT24                                47
+#define IDS_QNT32                                48
+
+#define C_DEFAULT                                50
+#define C_WHITE                                  51
+#define C_BLACK                                  52
+#define C_BACKGROUND                             53
+#define C_BLUE                                   54
+#define C_RED                                    55
+#define C_PINK                                   56
+#define C_GREEN                                  57
+#define C_CYAN                                   58
+#define C_YELLOW                                 59
+#define C_NEUTRAL                                60
+#define C_DARKGRAY                               61
+#define C_DARKBLUE                               62
+#define C_DARKRED                                63
+#define C_DARKPINK                               64
+#define C_DARKGREEN                              65
+#define C_DARKCYAN                               66
+#define C_BROWN                                  67
+#define C_PALEGRAY                               68
+
+// Client window pushbutton group - must remain in sequence
+#define MN_B0           200
+#define MN_B1           201
+#define MN_B2           202
+#define MN_B3           203
+#define MN_B4           204
+#define MN_B5           205
+#define MN_B6           206
+#define MN_B7           207
+
+#define IDM_TUTORIAL      96
+#define IDM_EDIT_HELP     97
+#define IDM_H_HELP        98
+#define IDM_H_HELPFORHELP 99
+
+#define IDD_FILENAME      300
+#define IDD_DIRNAME       301
+
+#define IDM_H_ABOUT       997
+

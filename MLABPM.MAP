@@ -1,0 +1,38 @@
+
+ mlabpm
+
+ Start         Length     Name                   Class
+ 0001:00000000 00001F0A4H CODE32                 CODE 32-bit
+ 0001:0001F0A4 000000030H _MSGSEG32              CODE 32-bit
+ 0002:00000000 000002530H DATA32                 DATA 32-bit
+ 0002:00002530 000000000H CTOR_DTOR1             DATA 32-bit
+ 0002:00002530 000000000H CTOR_DTOR2             DATA 32-bit
+ 0002:00002530 000000000H CTOR_DTOR3             DATA 32-bit
+ 0002:00002530 000000770H CONST32                CONST 32-bit
+ 0002:00002CA0 00000000CH EDC1                   EDC_CLASS 32-bit
+ 0002:00002CAC 000000294H EDC2                   EDC_CLASS 32-bit
+ 0002:00002F40 000000004H EDC3                   EDC_CLASS 32-bit
+ 0002:00002F44 000000000H BSS32                  BSS 32-bit
+ 0002:00002F44 00000135CH c_common               BSS 32-bit
+ 0002:000042A0 000004000H STACK32                STACK 32-bit
+
+ Origin   Group
+ 0000:0   FLAT
+ 0002:0   DGROUP
+
+ Address       Export                  Alias
+
+ 0001:0000A5C0 CTLPANELMsgProc         CTLPANELMsgProc
+ 0001:00017FF0 E1MsgProc               E1MsgProc
+ 0001:000154E8 E2MsgProc               E2MsgProc
+ 0001:00016ED0 E3MsgProc               E3MsgProc
+ 0001:00011A10 EDITMsgProc             EDITMsgProc
+ 0001:0000F6C0 EDITWndProc             EDITWndProc
+ 0001:00009EB6 FILEOPENMsgProc         FILEOPENMsgProc
+ 0001:0000E610 RECRDMsgProc            RECRDMsgProc
+ 0001:0000D040 SPECFUNCMsgProc         SPECFUNCMsgProc
+ 0001:0000C073 SYSEXMsgProc            SYSEXMsgProc
+ 0001:0000C890 UTILMsgProc             UTILMsgProc
+ 0001:00004520 WndProc                 WndProc
+
+Program entry point at 0001:00019064

@@ -1,0 +1,214 @@
+Areas of MidiLab/2 that need shoring up:
+1. Quantization
+2. Fonts
+3. Editor List Box
+4. SPP Continue (improved on 11-10 but still not perfect)
+5. Allow user to set and keep sysex dump requests
+6. Need a 'Preferences' dialog
+
+Known bugs:
+1. When changing timing on measure-end events, measure no. and timing count
+   indicators get screwed up. tmg_ctr and bar_ctr need to reflect current values.
+
+Things to consider taking out of OS/2 Applet:
+1. MPU command on Secondary Panel
+2. Quantize
+3. Fonts
+4. Monitor
+5. MPU track command
+6. Ability to insert MPU marks during edit
+-----------------------------------------------------------------------------
+
+Bug/Change Log and History
+
+01/10/93 - PMID1 - Bypass track commands during disk load
+01/10/93 - CSAD0 - Change ClipSize from SHORT to ULONG
+01/10/93 - EDIT2 - Test for !Lndx rather than !index in additem()
+01/17/93 - RMIDI - Remove elimination of measure ends if MTERROFF is on
+01/17/93 - SPEC0 - MTERROFF was getting flipped because of missing break in WM_CONTROL
+01/17/93 - DMGR0 - Scan all 8 tracks for meta events during load
+02/04/93 - CTLP0 - If MIDI-thru or Ext Ctl are toggled and chkact(), flip
+                   checkbox back to original state. No auto-check style.
+02/06/93 - EDIT2 - Adj_xfer: chk to make sure marked item is not itself an xfer
+02/06/93 - PMIDI - event_error(0) in an attempt to prevent elusive hang
+02/06/93 - EDIT1 - Changed Sequence -Play to play only the marked items
+02/06/93 - ML.RC - Allow 'SAVE' pulldown to call IDM_F_SAVE
+02/07/93 - EDIT0 - Change 'Modify' to only modify marked areas
+02/07/93 - EDIT2 - Change Re_Index to update note and velocity for 'Modify'
+02/08/93 - EDIT0 - Change 'Modify' to update list box directly instead of calling Re_Index
+02/08/93 - EDIT1 - Set EVPptr from Zndx instead of Xndx for mouse-dragging
+02/28/93 - EDIT1 - Set EVPptr from Xndx to determine lnth of marks. I had to go
+                   back and do this after making the previous change on 2/8
+02/28/93 - EDIT0 - Set Tlnth from Clpln for adj_xfer during 'Paste'
+-----------------------------------------------------------------------------
+New stuff for V1.20:
+
+04/20/93 - CWIN0 - Implemented Big Measures window
+04/22/93 - INIT0 - Use Dos calls for MLABPM.INI I/O (also MAIN0, DMGR0, & DMGR1)
+04/24/93 - SUBS1 - Changed Rel_Sustain call to TRUE in Space_bar function.
+04/25/93 - MAIN0 - SPP causes short tracks to start up at random times -
+                   Change: allow scan of all tracks instead of only active ones
+05/01/93 - DLL00 - Remove 'V1.0' in all msg text. Also in CWIN0 and EDIT2.
+05/02/93 - SPEC0 - Add MPU Cmd Ack selection in MPU trace. Also, in MAIN0 &
+                   SPEC0 I moved the DosEnterCritSec after the trace call.
+06/03/93 - RCRD0 - 'Input Channels' was not being set across record ops
+06/04/93 - MPU00 - Change cmd processing to allow trace during MPU simulation
+06/06/93 - DMGR1 - Change mouse pointer during file save to 'busy'
+-----------------------------------------------------------------------------
+New stuff for V1.21:
+
+06/21/93 - DMGR1 - Provide file dialog to print/suppress meta text during load
+06/21/93 - MPU401DD.SYS - Removed A:\ prefix in MAKEFILE. Was causing other users
+           a problem with AT bus machines
+06/21/93 - EDIT0 & EDIT2 - Moved 'out-of-space' msg to avoid prot chk and prevent
+           saving a track which has overrun the list box.
+06/23/93 - MANY  - Put a 'WinIsWindow' test before all WinPost/SendMsg calls to
+           send msgs to msg processing routines, to avoid sending same when
+           dialog was not active. (the UM_DLGINIT msg was erroneously being
+           posted to the EDIT0 routine instead of the CTPL0 routine, because the
+           control panel was not active)
+06/26/93 - DMGR1 - Clear name field to 12 blanks instead of 13 for events 03/04
+06/27/93 - DMGR0 - Free storage acquired for .MID track disk buffers.
+
+-----------------------------------------------------------------------------
+New stuff for V2.00:
+
+06/30/93 - 16 tracks!
+07/05/93 - Increased track capacity to 999,999 bytes.
+07/05/93 - Provided dialog box to set track sizes. (eliminated cmd line args)
+07/06/93 - CWIN0 - Added WinGetPS in WM_SIZE to allow GpiQueryFontMetrics to work
+-----------------------------------------------------------------------------
+New stuff for V2.10:
+
+07/17/93 - DMGR1 - Allowed to save Meta text length > 128
+07/17/93 - GTEV0 - Changed Meta evt test to check (flags1 & DISK) instead of MFILE10
+07/17/93 - SYSX0 - Change from 8 to 16 tracks for bulk dump/restore
+07/23/93 - MAIN0,SUBS1 - Defer reset of actvfunc until 0x94 ACK comes back
+07/23/93 - MPU00 - Expanded input buffer to 500 bytes (from 100)
+07/24/94 - CWIN0 - Added Track Erase function by dbl-click on index field.
+07/25/94 - MPU00 - Big Bug- Moved DosEnterCritSec to include call to Stack Mgr.
+07/27/93 - MPU00,SPEC0 Included input data and cmd stack high water marks in
+           trace of Stack and input data. Went to a 3-state chkbox for input tr.
+07/31/93 - DMGR1,FILE0 - Moved extension test (ML/MID) from FILE0 to DMGR1
+08/03/93 - DMGR0,GTEV0 - Fixed test for imbedded SysEx.(erase track if present)
+08/05/93 - VIEW0 - Allow raw display for 16 tracks.  (1-8 = t; 9-16 = T)
+08/07/93 - CWIN0 - Screwing around with font routine (to no avail)
+08/08/93 - SPEC0 - Eliminated 240 and 480 from time base list box.
+08/11/93 - MPU401DD - Eliminate BEEP on inpt bfr ovflo if drvr has not been opened
+                      This appears to fix the hard stop problem.
+-----------------------------------------------------------------------------
+New stuff for V2.21:
+
+08/14/93 - EDIT0 - Changed 'j' variable from SHORT to LONG to match EVP.index
+08/19/93 - CWIN0, et.al. - Provided for saving client position in MLABPM.INI.
+08/19/93 - CTLP0 - Update main window tempo box when tempo slider is moved.
+08/20/93 - CWIN0 - Consolidate all exits so that WM_CLOSE always gets control.
+08/26/93 - CWIN0, MAIN0 - Insure ack from final MPU reset is received.
+08/29/93 - EDIT1 - Don't send pgm chg on marked item if filter switch is set.
+08/30/93 - EDIT0, EDIT1 - Don't reset "Auto note-off" on Play Sequence.
+09/14/93 - SUBS2 - Insert Measure-End marks during load of MIDI 1.0 file
+09/24/93 - CWIN0, et.al. - Achieve higher device independence on screen
+-----------------------------------------------------------------------------
+New stuff for V2.30:
+
+>>>> 2/9/94 >>> 363 downloads of V2.21 on Compuserve
+09/25/93 - SUBS0 - Force measure reposition if track changed by Edit
+09/25/93 - EDIT0 - Save EVPptr during Save so next repeat adj. will decode ok
+09/30/93 - CTLP0 - Allow MIDI-THRU / OMNI mode setting to be saved in .INI.
+10/07/93 - CWIN0 - Remove GpiErase call from WM_PAINT
+10/07/93 - CWIN0 - Disallow SysReset if actvfunc
+10/08/93 - CWIN0 - Improve simulated play function. (Button2DBLCLK)
+10/08/93 - EDIT0 - Position List Box to current index position at entry
+10/09/93 - MAIN0, CTLP0 - Implement 'Measures to play' and PlayLoop function
+10/31/93 - CWIN0, et.al.- Set YESNOCANCEL for Confirm, allow abort on INI change
+10/31/93 - CWIN0,SUBS0 - Moved reset of active Edit Windows to dmgreset
+11/09/93 - PMIDI - Set correct track# when calling event_err
+11/10/93 - MAIN0 - Changed SPP routine to avoid measure timing errors
+11/10/93 - CWIN0 - Made general invalidate function to allow fonts to set ok
+11/16/93 - RMIDI,MAIN0,RCRD0 - Allow recording of anticipatory notes before downbeat ($$)
+11/29/93 - MPU401DD.ASM - Added delay to wait_drr rtn to compensate for 486DX2
+12/05/93 - CTLP0 - Added Reset button for 'starting_measures' group box
+01/08/94 - INIT0 - convert main window pushbuttons to MMPM/2 graphic style
+01/22/94 - CWIN0 - Implement Fast-Fwd (finally)
+01/23/94 - PMIDI,CWIN0 - Disable timing chk on 1st measure after positioning
+01/25/94 - CWIN0,MAIN0,SCRN0 - Put in REAL visual metronome (really finally)
+02/06/94 - FILE0 - Set search string to "*.M*" when calling cwFillFileListBox
+>>>> 2/15/94 >>> 460 downloads of V2.30 from Compuserve
+>>>> 3/09/94 >>> 530 downloads of V2.30 from Compuserve
+-----------------------------------------------------------------------------
+New stuff for V2.40:
+
+02/16/94 - DMGR0,DMGR1 - Preserve original time base when saving non-std value
+02/19/94 - INIT0 - Don't create bigbars thread if sim. mode to avoid tight loop
+02/24/94 - DMGR0 - Adjust deltime for time bases which are multiples of MPU's
+03/11/94 - DMGR0,MAIN0 - Expand Jumbo Measures to include total in song
+03/12/94 - INIT0,MAIN0 - Eliminate BigBars thread
+03/17/94 - SUBS2,CWIN0 - Put FATTRS and FONTMETRICS in ini file to preserve fonts
+03/17/94 - INIT0 - Add INI file validation
+*** NOTE!! There's a bug in this version if restarting a 'start from meas. n'
+which has been fixed in 2.50
+>>>> 3/27/94 >>> 603 downloads of V2.40 from Compuserve
+>>>> 3/30/94 >>> 618 downloads of V2.40 from Compuserve
+>>>> 4/10/94 >>> 639 downloads of V2.40 from Compuserve
+>>>> 4/18/94 >>> 645 downloads of V2.40 from Compuserve
+>>>> 5/17/94 >>> 668 downloads of V2.40 from Compuserve
+>>>> 5/29/94 >>> 676 downloads of V2.40 from Compuserve
+>>>>12/04/94 >>> 781 downloads of V2.40 from Compuserve (Uploaded 2.60 today)
+-----------------------------------------------------------------------------
+New stuff for V2.50:
+
+03/25/94 - PMIDI,SUBS0,MAIN0 - Use only MPU trk 1 request to play all tracks
+03/27/94 - SPEC0,CWIN0 - Removed inactv trk requirement send pgm change
+03/28/94 - MAIN0,et al - Much screwing around with Locate_SPP
+03/29/94 - PMID1 - Fixed Track Initiate function for 16 track operation
+03/29/94 - INIT0,CWIN0,SUBS1,DMGR0,CSA00,MLABPM.H - Integrate MMPM/2 stuff
+04/04/94 - MAIN0 - On trk req, allow Tmg Ovfls to pass without SPTime adjustment
+04/04/94 - SUBS0,CWIN0 - Fix loop problem when positioning beyond end of track
+04/05/94 - MAIN0 - Fix bug in Locate_SPP involving track transfers
+04/10/94 - SUBS0, et al - Change name field default from "(anon.)" to blanks
+-----------------------------------------------------------------------------
+New stuff for V2.60:  (MMPM/2 (hopefully) version)
+
+04/17/94 - Split out Track Block from EVP for track-related information.
+04/22/94 - Move trace facility to List Box; eliminate Trk Display in VIEW0
+04/23/94 - MPU00 - Changed command stack size from 30 to 100
+04/25/94 - SPEC0,CTLP0, etc. - Eliminate secondary ctl pnl; create pref. pnl
+05/04/94 - VIEW0, et al - Begin implemetation of new Song Editor
+05/06/94 - RCRD0, et al - Change modus operandi to *always* insert MEAS_ENDs
+05/06/94 - CSA00 - Remove general i & j variables (used in FILE0 PMIDI RMIDI SUBS1 CWIN0)
+05/15/94 - SUBS2 - Change set_check to set_attr to expand functionality
+06/01/94 - VIEW1 - Split VIEW0 into two modules as it was growing humongous
+08/14/94 - INIT0, CWIN0 - Messing around with new List Box. No luck yet...
+>>>> Version 2.60 sent to Compuserve OS/2 User Forum on 12/4/94
+>>>> 12/17/94 >>> 888 downloads of V2.60 from Compuserve
+
+-----------------------------------------------------------------------------
+New stuff for V3.01:  (UART Mode now supported)
+
+10/22/95 - FILE0 - Use LM_DELETE and LM_INSERT to manage File list box.
+10/24/95 - DMGR0 - Set Track/Chan default assignments from track data.(disabled)
+11/06/95 - RCRD0 - Misc fixes for MIDI metronome clicks.
+11/10/95 - CSA00 - Changed songname from 12 to 14 chars; was clobbering pulTimer
+11/11/95 - EDIT0 - On Mark-to-End, Tlnth not being calculated.
+11/12/95 - RMIDI - Rmt Cntrl capturing when it shouldn't be (C1-D1-E1)
+11/12/95 - DRIVR - Many fixes/improvements...
+--- This version archived on 11/13/95 ---
+
+-----------------------------------------------------------------------------
+New stuff for V3.02:
+nada
+-----------------------------------------------------------------------------
+New stuff for V3.03:
+01/08/96 - INIT0, DMGR0, DMGR1 - Allow loading MIDI files from CD ROM.
+01/09/96 - DMGR1 - Blowing up if meta tempo is greater than 255
+01/14/96 - CWIN0 - Cleaned up FFwd by using GBN_BUTTONHILITE for MN_B6 detection
+3.03 uploaded as Shareware on 1/19/96
+
+-----------------------------------------------------------------------------
+New stuff for V3.04:
+02/04/96 - CWIN0 - Add Beep when fast fwd reaches end of song
+04/28/96 - EDIT0 - Use WinSetPresParm to set event list box font
+06/08/96 - SUBS1 - Reinstate Record '0' bars to not use metronome
+06/09/96 - MAIN0, MPU00, RMIDI, & Driver - Fix IBfr overrun problems
+12/27/96 - INIT0 - Cleaned up Graphic Button Control Data structures
+

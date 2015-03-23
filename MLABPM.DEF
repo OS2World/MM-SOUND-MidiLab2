@@ -1,0 +1,21 @@
+NAME            MLABPM WINDOWAPI
+DESCRIPTION     'MidiLab/2 Version 2.6 (32 Bit)'
+;CODE            LOADONCALL
+;DATA            PRELOAD MULTIPLE
+EXETYPE         OS2
+HEAPSIZE        MAXVAL
+STACKSIZE       16384
+
+EXPORTS         WndProc                @1
+                EDITWndProc            @2
+                FILEOPENMsgProc        @3
+                CTLPANELMsgProc        @4
+                SYSEXMsgProc           @5
+                SPECFUNCMsgProc        @6
+                RECRDMsgProc           @7
+                UTILMsgProc            @8
+                EDITMsgProc            @9
+                E1MsgProc              @10
+                E2MsgProc              @11
+                E3MsgProc              @12
+
