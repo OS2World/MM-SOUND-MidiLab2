@@ -11,8 +11,8 @@ COMPILE TOOLS
  
 AUTHORS
 ===============
-* J. L. Bell
+* James L. Bell
 
 LINKS
 ===============
-* 
+* http://www.sainthelenapark.org/Subweb1/MidiLab.htm
